@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Info, Zap, ShoppingBag, PhoneCall, SquareUser } from "lucide-react";
+import Header from "@components/app/header";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -12,6 +14,34 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const sections = [
+  {
+    icon: <Info />,
+    name: "About",
+    linkTo: "about",
+  },
+  {
+    icon: <Zap />,
+    name: "Features",
+    linkTo: "features",
+  },
+  {
+    icon: <ShoppingBag />,
+    name: "Products",
+    linkTo: "products",
+  },
+  {
+    icon: <PhoneCall />,
+    name: "Contact",
+    linkTo: "contact",
+  },
+  {
+    icon: <SquareUser />,
+    name: "Login",
+    linkTo: "#",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Trackolo",
@@ -28,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header sections={sections} />
         {children}
       </body>
     </html>
